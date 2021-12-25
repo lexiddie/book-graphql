@@ -1,0 +1,26 @@
+{
+  "overrides": [
+    {
+      "files": ["**/*.css", "**/*.scss", "**/*.html"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ],
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "jsxBracketSameLine": true,
+  "bracketSpacing": true,
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "ignore",
+  "arrowParens": "always",
+  "insertPragma": false,
+  "printWidth": 150,
+  "quoteProps": "as-needed",
+  "requirePragma": false,
+  "proseWrap": "preserve",
+  "trailingComma": "none",
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false
+}

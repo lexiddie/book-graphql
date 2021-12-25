@@ -1,0 +1,114 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  _id: ID!
+  email: String!
+  name: String!
+  confirmToken: String!
+}
+
+type Author {
+  _id: ID!
+  name: String!
+  createdBy: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  books: [Book!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Book {
+  _id: ID!
+  title: String!
+  isbn: String!
+  rate: Float!
+  publisher: String!
+  author: Author!
+  createdBy: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Query {
+  authors: [Author!]!
+  books: [Book!]!
+  book(input: FindBookInput!): Book!
+  login(input: LoginInput!): User
+  me: User
+  logout: User
+}
+
+input FindBookInput {
+  _id: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createAuthor(input: CreateAuthorInput!): Author!
+  updateAuthor(input: UpdateAuthorInput!): Author!
+  deleteAuthor(input: DeleteAuthorInput!): Author!
+  createBook(input: CreateBookInput!): Book!
+  updateBook(input: UpdateBookInput!): Book!
+  deleteBook(input: DeleteBookInput!): Book!
+  registerUser(input: CreateUserInput!): User!
+  confirmUser(input: ConfirmUserInput!): User!
+}
+
+input CreateAuthorInput {
+  name: String!
+  createdBy: String!
+}
+
+input UpdateAuthorInput {
+  _id: ID!
+  name: String!
+  createdBy: String!
+}
+
+input DeleteAuthorInput {
+  _id: ID!
+}
+
+input CreateBookInput {
+  title: String!
+  isbn: String!
+  rate: Float!
+  publisher: String!
+  author: String!
+  createdBy: String!
+}
+
+input UpdateBookInput {
+  _id: ID!
+  title: String!
+  isbn: String!
+  rate: Float!
+  publisher: String!
+  author: String!
+  createdBy: String!
+}
+
+input DeleteBookInput {
+  _id: ID!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input ConfirmUserInput {
+  email: String!
+  confirmToken: String!
+}
